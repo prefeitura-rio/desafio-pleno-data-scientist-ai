@@ -16,6 +16,7 @@ class AgentState(TypedDict):
     error: str
 
 
+
 class DataAgent:
     def __init__(self, llm_api_key, bq_credentials_path):
         self.llm = OpenAI(api_key=llm_api_key)
