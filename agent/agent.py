@@ -4,6 +4,15 @@ from langgraph.graph import StateGraph
 from agent.sql_generator import generate_sql, validate_sql
 from agent.bigquery_client import BigQueryClient
 from agent.memory import AgentMemory
+from typing import TypedDict
+
+class AgentState(TypedDict):
+    user_input: str
+    generated_sql: str
+    validated_sql: str
+    query_result: str
+    response: str
+    error: str
 
 class DataAgent:
     def __init__(self, llm_api_key, bq_credentials_path):
@@ -11,9 +20,10 @@ class DataAgent:
         self.memory = AgentMemory()
         self.bq_client = BigQueryClient(bq_credentials_path)
         self.graph = self._build_graph()
+        
 
     def _build_graph(self):
-        graph = StateGraph()
+        graph = StateGraph(AgentState)
         graph.add_node("input", self._input_handler)
         graph.add_node("sql_generation", self._sql_generation_handler)
         graph.add_node("sql_validation", self._sql_validation_handler)
