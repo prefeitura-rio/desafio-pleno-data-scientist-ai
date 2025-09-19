@@ -1,0 +1,16 @@
+# Ignora variáveis de ambiente
+.env
+
+# Ignora caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignora diretórios de ambientes virtuais
+.venv/
+venv/
+env/
+
+# Ignora arquivos de log
+*.log
