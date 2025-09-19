@@ -6,6 +6,7 @@ from agent.bigquery_client import BigQueryClient
 from agent.memory import AgentMemory
 from typing import TypedDict
 
+
 class AgentState(TypedDict):
     user_input: str
     generated_sql: str
@@ -14,13 +15,13 @@ class AgentState(TypedDict):
     response: str
     error: str
 
+
 class DataAgent:
     def __init__(self, llm_api_key, bq_credentials_path):
         self.llm = OpenAI(api_key=llm_api_key)
         self.memory = AgentMemory()
         self.bq_client = BigQueryClient(bq_credentials_path)
         self.graph = self._build_graph()
-        
 
     def _build_graph(self):
         graph = StateGraph(AgentState)
@@ -68,7 +69,9 @@ class DataAgent:
             return "error"
 
     def _response_generation_handler(self, state):
-        answer = self.llm(f"Explique os resultados para a pergunta: '{state['question']}' usando: {state['results']}")
+        answer = self.llm(
+            f"Explique os resultados para a pergunta: '{state['question']}' usando: {state['results']}"
+        )
         state["answer"] = answer
         return state
 
