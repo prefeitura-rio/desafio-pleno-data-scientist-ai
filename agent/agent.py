@@ -6,6 +6,7 @@ from agent.bigquery_client import BigQueryClient
 from agent.memory import AgentMemory
 from typing import TypedDict
 
+
 class AgentState(TypedDict):
     user_input: str
     generated_sql: str
