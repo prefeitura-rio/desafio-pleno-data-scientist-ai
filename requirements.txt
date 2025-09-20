@@ -9,6 +9,7 @@ google-cloud-bigquery
 pandas
 openai
 python-dotenv
+pre-commit
 langchain_community
 streamlit==1.32.0
 packaging<24,>=16.8
