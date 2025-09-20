@@ -5,6 +5,7 @@ from agent.sql_generator import generate_sql, validate_sql
 from agent.bigquery_client import BigQueryClient
 from agent.memory import AgentMemory
 
+
 class DataAgent:
     def __init__(self, llm_api_key, bq_credentials_path):
         self.llm = OpenAI(api_key=llm_api_key)
@@ -58,7 +59,9 @@ class DataAgent:
             return "error"
 
     def _response_generation_handler(self, state):
-        answer = self.llm(f"Explique os resultados para a pergunta: '{state['question']}' usando: {state['results']}")
+        answer = self.llm(
+            f"Explique os resultados para a pergunta: '{state['question']}' usando: {state['results']}"
+        )
         state["answer"] = answer
         return state
 
