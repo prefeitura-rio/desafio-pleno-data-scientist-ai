@@ -88,3 +88,4 @@ class DataAgent:
 
     def _error_handler(self, state):
         return {"error": state.get("error", "Erro desconhecido")}
+
