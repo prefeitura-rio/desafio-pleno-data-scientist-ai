@@ -16,7 +16,6 @@ class AgentState(TypedDict):
     error: str
 
 
-
 class DataAgent:
     def __init__(self, llm_api_key, bq_credentials_path):
         self.llm = OpenAI(api_key=llm_api_key)
@@ -40,7 +39,6 @@ class DataAgent:
         self.graph.add_edge("query_execution", "response_generation")
         self.graph.add_edge("sql_validation", "error")
         self.graph.add_edge("query_execution", "error")
-        
 
     def run(self, question):
         state = {
@@ -50,9 +48,9 @@ class DataAgent:
             "query_result": "",
             "response": "",
             "error": "",
-            "memory": self.memory
+            "memory": self.memory,
         }
-        return self.app.invoke(state)                                                                                           
+        return self.app.invoke(state)
 
     def _input_handler(self, state):
         self.memory.add_interaction(state["user_input"])
@@ -88,4 +86,3 @@ class DataAgent:
 
     def _error_handler(self, state):
         return {"error": state.get("error", "Erro desconhecido")}
-
