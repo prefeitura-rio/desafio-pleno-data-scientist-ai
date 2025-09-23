@@ -1,6 +1,7 @@
 from google.cloud import bigquery
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 credentials_path = os.getenv("BIGQUERY_CREDENTIALS_PATH")
@@ -18,7 +19,9 @@ else:
         """
         result = client.query(query).result()
         for row in result:
-            print(f"Conexão bem-sucedida! Total de registros na tabela chamado: {row.total}")
+            print(
+                f"Conexão bem-sucedida! Total de registros na tabela chamado: {row.total}"
+            )
         # Testa segunda tabela
         query2 = "SELECT COUNT(*) as total FROM `datario.dados_mestres.bairro`"
         result2 = client.query(query2).result()

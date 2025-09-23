@@ -1,6 +1,9 @@
 from langgraph.graph import StateGraph
 
-class AgentState(dict): pass
+
+class AgentState(dict):
+    pass
+
 
 graph = StateGraph(AgentState)
 graph.add_node("input", lambda s: s)
