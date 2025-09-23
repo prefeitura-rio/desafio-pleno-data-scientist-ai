@@ -14,3 +14,4 @@ langchain-openai
 streamlit==1.32.0
 packaging<24,>=16.8
 protobuf<5,>=3.20
+openai

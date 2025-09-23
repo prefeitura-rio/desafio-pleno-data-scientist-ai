@@ -1,10 +1,14 @@
 import re
-
+import openai
 
 def generate_sql(question, llm):
     prompt = f"Gere uma consulta SQL para responder: '{question}'. Use as tabelas datario.adm_central_atendimento_1746.chamado e datario.dados_mestres.bairro."
-    response = llm(prompt)
-    return response.strip()
+    client = openai.OpenAI(api_key=llm.api_key)
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content.strip()
 
 
 def validate_sql(sql):
