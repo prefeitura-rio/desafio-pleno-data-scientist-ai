@@ -40,8 +40,6 @@ class DataAgent:
         graph.add_edge("sql_validation", "error")
         graph.add_edge("query_execution", "error")
         return graph
-        graph.add_edge("query_execution", "error")
-        return graph
 
     def run(self, question):
         state = {"user_input": question, "memory": self.memory}

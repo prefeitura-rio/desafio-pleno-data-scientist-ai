@@ -18,5 +18,4 @@ def validate_sql(sql):
         return False, "Comando perigoso detectado."
     if not sql.lower().startswith("select"):
         return False, "Apenas consultas SELECT são permitidas."
-    # Poderia adicionar validação de custo/partições/etc.
     return True, ""
