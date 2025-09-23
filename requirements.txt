@@ -1,0 +1,16 @@
+langchain>=0.3.27
+langchain-core>=0.3.75
+langchain-community>=0.3.29
+langchain-text-splitters>=0.3.11
+langgraph
+langgraph-checkpoint
+langgraph-prebuilt
+google-cloud-bigquery
+pandas
+openai
+python-dotenv
+pre-commit
+langchain_community
+streamlit==1.32.0
+packaging<24,>=16.8
+protobuf<5,>=3.20
