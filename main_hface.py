@@ -1,6 +1,7 @@
 import os
 from agent.agent_hface import run_agent_hface
 
+
 def main():
     # Carrega variáveis de ambiente
     openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -15,8 +16,9 @@ def main():
     # Executa o agente usando Hugging Face
     run_agent_hface(
         huggingface_api_key=huggingface_api_key,
-        bigquery_credentials_path=bigquery_credentials_path
+        bigquery_credentials_path=bigquery_credentials_path,
     )
+
 
 if __name__ == "__main__":
     main()
